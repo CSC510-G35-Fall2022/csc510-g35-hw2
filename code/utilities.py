@@ -1,5 +1,6 @@
 import csv
-import statistics
+import pprint as pp
+
 
 csvfile = open('hw2test.csv', 'r')
 datalist = []
@@ -44,6 +45,6 @@ class utilities:
     def get_sym_data():
         return sym_data_list
 
-    print(get_num_data())
-    print(get_sym_data())
+    pp.pprint(get_num_data())
+    pp.pprint(get_sym_data())
 
