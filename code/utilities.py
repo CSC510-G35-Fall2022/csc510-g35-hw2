@@ -14,7 +14,7 @@ symdict = {}
 
 ct = 0
 for i in datalist[0]:
-    if i[-1] != '+' and i[-1] != '-' and i[-1] != ':':
+    if i[0].isupper() and i[-1] != '+' and i[-1] != '-' and i[-1] != ':':
         numcols.append(i)
         numdict[i] = ct
     if  i[-1] == '-' or i[-1] == '+':
