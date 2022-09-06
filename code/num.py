@@ -1,15 +1,17 @@
 import csv
 import random
 import utilities
+import commandLine as c
+
 class num:
     def __init__(self,name,_has):
-        n=0
-        at=len(self._has)
-        name=self.name
-        _has=self._has
-        lo=min(self._has) if len(self._has)>1 else 0
-        hi=min(self._has) if len(self._has)>1 else 0
-        isSorted=False
+        self.n=0
+        self.at=len(_has)
+        self.name=name
+        self._has=_has
+        self.lo=min(_has) if len(_has)>1 else 0
+        self.hi=min(_has) if len(_has)>1 else 0
+        self.isSorted=False
     def nums(self):
         if not self.isSorted:
             self._has.sort()
@@ -20,9 +22,9 @@ class num:
             self.n=self.n+1
             self.lo=min(v,self.lo)
             self.hi=max(v,self.hi)
-            if len(self._has)< maxlim:
+            if len(self._has)< c.the["nums"]:
                 pos=1+ len(self._has)
-            elif random.randrange(0,1)< maxlim/n:
+            elif random.randrange(0,1)< c.the["nums"]:
                 pos=1+random.randint(0, len(self._has))
             if pos:
                 self.isSorted=False

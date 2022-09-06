@@ -3,7 +3,7 @@ import pprint as pp
 from webbrowser import get
 
 
-csvfile = open('hw2test.csv', 'r')
+csvfile = open('../hw2test.csv', 'r')
 datalist = []
 for row in csv.reader(csvfile, delimiter=","):
     datalist.append(row)
