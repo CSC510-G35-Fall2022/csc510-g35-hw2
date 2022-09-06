@@ -24,27 +24,19 @@ class Sym:
             return e
 
 
+    #WORKING
+    #finds mode of a column of data in the sym class
     def mid(data_):
+        mode_dict= {}
+        for i, key in enumerate(data_.keys()):
+            data_list = data_[key]
+            mode = max(set(data_list), key = data_list.count)
+            mode_dict[key] = mode
 
-        tmp_dict = {}
-        for x in range(0, len(data_[0])):
-            print(data_[0][x])
-            tmp_dict[data_[0][x]] = []
-        print(tmp_dict)
-        
-        data_list = []
-        mode_list = []
-        mode_list.append(data_[0])
-        for i in range(1, len(data_)):
-            for j in range (0, len(data_[i])):
-                data_list.append(data_[i][j])
-
-        mode = [(max(set(data_list), key = data_list.count))]
-        mode_list.append(mode)
-        return mode_list
+        return mode_dict
 
 
 utilobj=utilities.utilities()
-data = utilobj.get_sym_data()
+data = utilobj.convert_data_list_to_dict(utilobj.get_sym_data())
 print(Sym.mid(data))
 

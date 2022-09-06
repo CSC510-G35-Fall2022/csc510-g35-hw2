@@ -59,6 +59,17 @@ class utilities:
     def get_dep_data(self):
         return dep_data_list
 
+    def convert_data_list_to_dict(self, data_):
+        tmp_dict = {}
+        for x in range(0, len(data_[0])):
+            tmp_dict[data_[0][x]] = []
+
+        for i in range(1, len(data_)):
+            for j, key in enumerate(tmp_dict.keys()):
+                tmp_dict[key].append(data_[i][j])
+
+        return tmp_dict
+
     #pp.pprint(get_num_data()[:10])
     #pp.pprint(get_sym_data()[:10])
     #pp.pprint(get_dep_data()[:10])
