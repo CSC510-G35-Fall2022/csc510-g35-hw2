@@ -50,16 +50,16 @@ for idx in range (0, len(datalist)):
     dep_data_list.append(tmp_dep)
 
 class utilities:
-    def get_num_data():
+    def get_num_data(self):
         return num_data_list
 
-    def get_sym_data():
+    def get_sym_data(self):
         return sym_data_list
 
-    def get_dep_data():
+    def get_dep_data(self):
         return dep_data_list
 
-    pp.pprint(get_num_data()[:10])
-    pp.pprint(get_sym_data()[:10])
-    pp.pprint(get_dep_data()[:10])
+    #pp.pprint(get_num_data()[:10])
+    #pp.pprint(get_sym_data()[:10])
+    #pp.pprint(get_dep_data()[:10])
 
