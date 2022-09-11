@@ -4,20 +4,21 @@ import utilities
 import commandLine as c
 
 class num:
-    def __init__(self,name,_has):
+    def __init__(self,name, _has=[]):
         self.n=0
-        self.at=len(_has)
+       
         self.name=name
-        self._has=_has
+        self._has=_has 
+        self.at=len(_has)
         self.lo=min(_has) if len(_has)>1 else 0
         self.hi=min(_has) if len(_has)>1 else 0
-        self.isSorted=False
+        self.isSorted=True
     def nums(self):
         if not self.isSorted:
             self._has.sort()
             self.isSorted=True
         return self._has
-    def add(self,v,posi):
+    def add(self,v,pos):
         if v!="?":
             self.n=self.n+1
             self.lo=min(v,self.lo)
@@ -28,17 +29,19 @@ class num:
                 pos=1+random.randint(0, len(self._has))
             if pos:
                 self.isSorted=False
-                self._has[pos]=v
+                self._has.insert(pos, v)
+                
 
         
-    def div(self, a):
+    def div(self):
         a=self.nums()
         mean = sum(a)/len(a)
         variance = sum([((x - mean) ** 2) for x in a]) / len(a)
         stddev = variance ** 0.5
         return(stddev)
-    def median(self, a):
-        a=self.nums()
-        return(a[len(a)//2])
+    def median(self):
+        
+        return(self.nums()[len(self.nums())//2])
 utilobj=utilities.utilities()
-print(utilobj.get_num_data())
+# print(utilobj.get_num_data())
+

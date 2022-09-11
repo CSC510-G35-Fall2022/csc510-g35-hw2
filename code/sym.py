@@ -1,11 +1,12 @@
 import utilities
 class Sym:
     n=0
-    _has={}
-    def __init__(self,c,s):
+    
+    def __init__(self,c=0,s="", _has={}):
         
         self.at=c
         self.name=s
+        self._has = _has
 
     def add(v):
         if v != '?':
@@ -38,5 +39,5 @@ class Sym:
 
 utilobj=utilities.utilities()
 data_dict = utilobj.convert_data_list_to_dict(utilobj.get_sym_data())
-print(Sym.mid(data_dict))
+print("xmid: ", Sym.mid(data_dict))
 
