@@ -2,8 +2,9 @@ import csv
 import pprint as pp
 from webbrowser import get
 
-
-csvfile = open('/Users/mayapatel/Documents/Academics/Fall 2022/CSC510/csc510-g35-hw2/hw2test.csv', 'r')
+# Read csv file with a comma as the delimiter, then split the data according
+# to num, sy and dependent data
+csvfile = open('hw2test.csv', 'r')
 datalist = []
 for row in csv.reader(csvfile, delimiter=","):
     datalist.append(row)
@@ -15,6 +16,7 @@ symdict = {}
 depcols = []
 depdict = {}
 
+# split the data according to num and sym definitions
 ct = 0
 for i in datalist[0]:
     if i[0].isupper() and i[-1] != '+' and i[-1] != '-' and i[-1] != ':':
@@ -49,16 +51,23 @@ for idx in range (0, len(datalist)):
     sym_data_list.append(tmp_sym)
     dep_data_list.append(tmp_dep)
 
+# utilities class which holds functions go get data as a 2D list and 
+# another function to convert the 2D list data into a dictionary format.
 class utilities:
+
+    # get num data as a 2D array
     def get_num_data(self):
         return num_data_list
 
+    # get sym data as a 2D array
     def get_sym_data(self):
         return sym_data_list
 
+    # get dependent data as a 2D array
     def get_dep_data(self):
         return dep_data_list
 
+    # convert 2D array data into a dictionary
     def convert_data_list_to_dict(self, data_):
         tmp_dict = {}
         for x in range(0, len(data_[0])):
