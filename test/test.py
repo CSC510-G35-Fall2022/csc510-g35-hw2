@@ -6,7 +6,7 @@ sys.path.append(fpath)
 #print(sys.path)
 
 import commandLine as c
-from num import num as Num
+from num import Num as Num
 from sym import Sym as Sym
 
 class Test:
@@ -17,31 +17,28 @@ class Test:
         self.message = 'yo'
 
     def the(self):
-        print('the test')
         print(c.the)
         return True
 
     def bignum(self):
-        num = Num("Hello")
+        num = Num(0, "Hello")
         print('bignumtest')
         c.the["nums"] = 32
-        for i in range(1000):
-            num.add(i, i)
-        print(Num.nums())
-        print(32 == num._has)
+        for i in range(1, 1001):
+            num.add(i, i - 1)
+        print(num.nums())
+        return 32 == len(num._has)
 
     def num(self):
-
-        num= Num("hello")
-        c.the["nums"] = 32
-        for i in range(100):
-            num.add(i, i)
+        num = Num(0, "hello")
+        for i in range(1,101):
+            num.add(i, i - 1)
+        print(num.nums())
         mid, div = num.median(), num.div()
         print(mid, div)
-        print(32 == num._has)
+        return 50 <= mid and mid <= 52 and 30.5 < div and div < 32
 
     def sym(self):
- 
         sym= Sym("sym")
         c.the["nums"] = 32
         for x,y in sym._has:
@@ -52,7 +49,8 @@ class Test:
 
 instance = Test()
 instance.the()
-print("Num test")
-instance.num()
-print("Sym test")
-instance.sym()
+#print("Num test")
+print(instance.num())
+print(instance.bignum())
+#print("Sym test")
+#instance.sym()

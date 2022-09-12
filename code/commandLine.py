@@ -28,6 +28,10 @@ for match in pattern.finditer(help):
     k, v = match.group(1, 2)
     the[k] = coerce(v)
 
+"""
+Reads in default options and stores in configuration dictionary "the"
+t = dictionary of options
+"""
 def cli(t):
     for slot, v in t.items():
         v = str(v)
@@ -41,4 +45,4 @@ def cli(t):
     return t     
 
 the = cli(the)
-print("hello world")
+#print("hello world")

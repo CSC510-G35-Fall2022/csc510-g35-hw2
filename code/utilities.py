@@ -1,10 +1,11 @@
 import csv
 import pprint as pp
 from webbrowser import get
+import math
 
 # Read csv file with a comma as the delimiter, then split the data according
 # to num, sy and dependent data
-csvfile = open('hw2test.csv', 'r')
+csvfile = open('../hw2test.csv', 'r')
 datalist = []
 for row in csv.reader(csvfile, delimiter=","):
     datalist.append(row)
@@ -50,6 +51,17 @@ for idx in range (0, len(datalist)):
     num_data_list.append(tmp_num)
     sym_data_list.append(tmp_sym)
     dep_data_list.append(tmp_dep)
+
+    """
+    t = sorted list
+    p = percentile
+    Returns a number located at the pth percentile location in the sorted list t
+    """
+    def per(t, p):
+        n = len(t)
+        #obtains position based off percentile
+        p = math.floor((p or 0.5) * n + 0.5);
+        return t[max(1, min(n, p)) - 1]
 
 # utilities class which holds functions go get data as a 2D list and 
 # another function to convert the 2D list data into a dictionary format.
