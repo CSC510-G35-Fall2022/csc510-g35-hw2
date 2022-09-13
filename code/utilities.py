@@ -5,52 +5,85 @@ import math
 
 # Read csv file with a comma as the delimiter, then split the data according
 # to num, sy and dependent data
-csvfile = open('../hw2test.csv', 'r')
+csvfile = open('hw2test.csv', 'r')
 datalist = []
 for row in csv.reader(csvfile, delimiter=","):
     datalist.append(row)
 
+allcols = []
+alldict = {}
+
 numcols = []
 numdict = {}
+
 symcols = []
 symdict = {}
+
 depcols = []
 depdict = {}
+
+indepcols = []
+indepdict = {}
 
 # split the data according to num and sym definitions
 ct = 0
 for i in datalist[0]:
+    allcols.append(i)
+    alldict[i] = ct
+
     if i[0].isupper() and i[-1] != '+' and i[-1] != '-' and i[-1] != ':':
         numcols.append(i)
+        indepcols.append(i)
+
         numdict[i] = ct
+        indepdict[i] = ct
+
     if i[0].islower() and i[-1] != '+' and i[-1] != '-' and i[-1] != ':':
         symcols.append(i)
+        indepcols.append(i)
+
         symdict[i] = ct
+        indepdict[i] = ct
+
     if  i[-1] == '-' or i[-1] == '+':
         depcols.append(i)
         depdict[i] = ct
+
     ct += 1
 
 
 num_data_list = []
 sym_data_list = []
 dep_data_list = []
+indep_data_list = []
+all_data_list = []
 
 for idx in range (0, len(datalist)):
     tmp_num = []
     tmp_sym = []
     tmp_dep = []
+    tmp_indep = []
+    tmp_all = []
     for x in range (0, len(datalist[idx])):
+        tmp_all.append(datalist[idx][x])
+
         if x in list(numdict.values()):
             tmp_num.append(datalist[idx][x])
+            tmp_indep.append(datalist[idx][x])
+
         if x in list(symdict.values()):
             tmp_sym.append(datalist[idx][x])
+            tmp_indep.append(datalist[idx][x])
+
         if x in list(depdict.values()):
             tmp_dep.append(datalist[idx][x])
     
     num_data_list.append(tmp_num)
     sym_data_list.append(tmp_sym)
     dep_data_list.append(tmp_dep)
+    indep_data_list.append(tmp_indep)
+    all_data_list.append(tmp_all)
+
 
     """
     t = sorted list
@@ -75,9 +108,17 @@ class utilities:
     def get_sym_data(self):
         return sym_data_list
 
-    # get dependent data as a 2D array
+    # get dependent data (y) as a 2D array
     def get_dep_data(self):
         return dep_data_list
+
+    # get independent (x) data as a 2D array
+    def get_indep_data(self):
+        return indep_data_list
+
+    # get all data as a 2D array
+    def get_all_data(self):
+        return all_data_list
 
     # convert 2D array data into a dictionary
     def convert_data_list_to_dict(self, data_):
@@ -91,7 +132,7 @@ class utilities:
 
         return tmp_dict
 
-    #pp.pprint(get_num_data()[:10])
-    #pp.pprint(get_sym_data()[:10])
-    #pp.pprint(get_dep_data()[:10])
+    # pp.pprint(get_num_data()[:10])
+    # pp.pprint(get_sym_data()[:10])
+    # pp.pprint(get_dep_data()[:10])
 
