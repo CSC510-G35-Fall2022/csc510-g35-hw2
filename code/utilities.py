@@ -131,8 +131,3 @@ class utilities:
                 tmp_dict[key].append(data_[i][j])
 
         return tmp_dict
-
-    # pp.pprint(get_num_data()[:10])
-    # pp.pprint(get_sym_data()[:10])
-    # pp.pprint(get_dep_data()[:10])
-
