@@ -39,13 +39,14 @@ class Test:
         return 50 <= mid and mid <= 52 and 30.5 < div and div < 32
 
     def sym(self):
-        sym= Sym("sym")
+        sym= Sym(0,"Hello")
         c.the["nums"] = 32
-        for x,y in sym._has:
+        for x in ["a","a","a","a","b","b","c"]:
             sym.add(y)
         mode, entropy = sym.mid(), sym.div()
-        print(mid, div)
-        print(32 == sym._has)
+        entropy = (1000*entropy)//1/1000
+        return mode == "a" and 1.37 <= entropy and entropy <=1.38
+
 
 instance = Test()
 instance.the()
@@ -53,4 +54,4 @@ instance.the()
 print(instance.num())
 print(instance.bignum())
 #print("Sym test")
-#instance.sym()
+print(instance.sym())

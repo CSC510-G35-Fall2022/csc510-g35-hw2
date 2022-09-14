@@ -1,28 +1,29 @@
 import utilities
 class Sym:
-    n=0
     
-    def __init__(self,c=0,s="", _has={}):
-        
-        self.at=c
-        self.name=s
-        self._has = _has
+    def __init__(self, c, s):
+        self.n = 0
+        self.name = s
+        self._has = {}
+        self.at = c or 0
 
-    def add(v):
-        if v != '?':
+    def add(self,v):
+        if v!="?":
             self.n=self.n+1
-            self._has[v]=1+(self.has[v] or 0)
+        if v in self._has:
+            self._has[v]= 1+(self._has[v] or 0)
+        else:
+            self._has[v]= 1
 
-    def fun(p):
+    def fun(self,p):
         return p*math.log(p,2)
-        
 
-    def div():
+    def div(self):
         e=0
-        for _,n in self._has:
-            if n>0:
-                e=e-fun(n/self.n)
-            return e
+        for k,v in self._has.items():
+            if v>0:
+                e=e-self.fun(v/self.n)
+        return e
 
 
     #WORKING
