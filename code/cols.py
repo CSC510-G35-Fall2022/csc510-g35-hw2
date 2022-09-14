@@ -4,7 +4,8 @@ import utilities
 class cols:
     #TODO
     #single dependent klass column - dont know what this is
-
+    def __init__(self, names):
+        self.names=names
     utilobj=utilities.utilities()
 
     #x data: independent unskipped columns

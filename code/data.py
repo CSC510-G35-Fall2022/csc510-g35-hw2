@@ -12,4 +12,9 @@ class data:
         else:
             for _ in range(s):
                 self.add(row)
-
+    def add(self, row):
+        if self.cols=='NIL':
+            self.cols=cols.cols(xs)
+        else:
+            for col in row:
+                print(col)

@@ -99,6 +99,15 @@ for idx in range (0, len(datalist)):
 # utilities class which holds functions go get data as a 2D list and 
 # another function to convert the 2D list data into a dictionary format.
 class utilities:
+    #CSV Function from the code
+    def csv(self, fname, fun):
+        print("Inside CSV Function in utilities")
+        src= open(fname)
+        s=src.readline()
+        while s:
+            line=s.strip()
+            t=line.split(",")
+            s=src.readline()
 
     # get num data as a 2D array
     def get_num_data(self):
@@ -131,3 +140,5 @@ class utilities:
                 tmp_dict[key].append(data_[i][j])
 
         return tmp_dict
+utiltest=utilities()
+utiltest.csv("hw2test.csv",'a')
