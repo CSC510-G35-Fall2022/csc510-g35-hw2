@@ -1,13 +1,13 @@
 import sys
-
 import os
-fpath = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'code')
-sys.path.append(fpath)
-#print(sys.path)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-import commandLine as c
-from num import Num as Num
-from sym import Sym as Sym
+import code
+import code.commandLine as c
+from code.num import Num
+from code.sym import Sym
+import code.utilities as u
+from code.data import Data
 
 class Test:
 
@@ -51,7 +51,10 @@ class Test:
 instance = Test()
 instance.the()
 #print("Num test")
-print(instance.num())
-print(instance.bignum())
+#print(instance.num())
+#print(instance.bignum())
 #print("Sym test")
-print(instance.sym())
+#print(instance.sym())
+data = Data("../hw2test.csv")
+for y in data.cols.x:
+    print(y.name)

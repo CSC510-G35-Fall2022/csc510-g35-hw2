@@ -2,10 +2,11 @@ import csv
 import pprint as pp
 from webbrowser import get
 import math
+import re
 
 # Read csv file with a comma as the delimiter, then split the data according
 # to num, sy and dependent data
-csvfile = open('hw2test.csv', 'r')
+csvfile = open('../hw2test.csv', 'r')
 datalist = []
 for row in csv.reader(csvfile, delimiter=","):
     datalist.append(row)
@@ -85,23 +86,39 @@ for idx in range (0, len(datalist)):
     all_data_list.append(tmp_all)
 
 
-    """
-    t = sorted list
-    p = percentile
-    Returns a number located at the pth percentile location in the sorted list t
-    """
-    def per(t, p):
-        n = len(t)
-        #obtains position based off percentile
-        p = math.floor((p or 0.5) * n + 0.5);
-        return t[max(1, min(n, p)) - 1]
+'''
+t = sorted list
+p = percentile
+Returns a number located at the pth percentile location in the sorted list t
+'''
+def per(t, p):
+    n = len(t)
+    #obtains position based off percentile
+    p = math.floor((p or 0.5) * n + 0.5);
+    return t[max(1, min(n, p)) - 1]
+
+def copy():
+    return "test"
+
+def csvs(fname, fun):
+    sep = ','
+    src = open(fname)
+    for line in src:
+        t = []
+        #TODO add coerce function here later
+        for s1 in line.rstrip().split(sep):
+            t.append(s1)
+        fun(t)
+
+
+
 
 # utilities class which holds functions go get data as a 2D list and 
 # another function to convert the 2D list data into a dictionary format.
 class utilities:
     #CSV Function from the code
     def csv(self, fname, fun):
-        print("Inside CSV Function in utilities")
+        #print("Inside CSV Function in utilities")
         src= open(fname)
         s=src.readline()
         while s:
@@ -141,4 +158,4 @@ class utilities:
 
         return tmp_dict
 utiltest=utilities()
-utiltest.csv("hw2test.csv",'a')
+utiltest.csv("../hw2test.csv",'a')

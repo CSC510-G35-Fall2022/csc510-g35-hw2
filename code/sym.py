@@ -1,4 +1,4 @@
-import utilities
+from . import utilities
 class Sym:
     
     def __init__(self, c, s):

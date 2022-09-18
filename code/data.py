@@ -1,20 +1,25 @@
-import utilities
-import num as n
-import sym as s
-import cols
-class data:
+from . import utilities as u
+from .cols import Cols
+from .row import Row
+
+class Data:
+    '''
+    Parameters:
+    src = location of the csv file to import from
+    Attributes:
+    cols = summary of data
+    rows = list of rows
+    '''
     def __init__(self, src):
-        utilobj=utilities.utilities()
-        cols= 'NIL'
-        rows={}
-        if type(src)==str:
-            print("SRC IS STRING")
-        else:
-            for _ in range(s):
-                self.add(row)
-    def add(self, row):
-        if self.cols=='NIL':
-            self.cols=cols.cols(xs)
-        else:
-            for col in row:
-                print(col)
+        self.cols = None
+        self.rows = []
+        u.csvs(src, self.add)
+
+    '''
+    xs = row to insert
+    '''
+    def add(self, xs):
+        if self.cols is None:
+            self.cols = Cols(xs)
+        else: 
+            self.rows.append(xs)

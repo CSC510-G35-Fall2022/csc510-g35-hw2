@@ -1,5 +1,9 @@
-class row:
-	def __init__(self,t):
-		cells=t
-		cooked=copy(t)
-		isEvaled=False
+class Row:
+	'''
+	Parameters:
+	t = table
+	'''
+	def __init__(self, t):
+		self.cells = t
+		self.cooked = None
+		self.isEvaled = False

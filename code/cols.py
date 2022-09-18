@@ -1,53 +1,37 @@
-import utilities
+from logging import NullHandler
+from . import utilities as u
+from .num import Num
+from .sym import Sym
+import re
 
 #store csv data, get functions for each
-class cols:
-    #TODO
+class Cols:
     #single dependent klass column - dont know what this is
+    '''
+    Parameters:
+    names = first row containing names of the columns
+    Attributes:
+    names = names of the columns
+    all = every column including skipped columns are included here
+    klass = single dependent col?
+    x = every dependent unskipped column
+    y = every independent unskipped column
+    '''
     def __init__(self, names):
-        self.names=names
-    utilobj=utilities.utilities()
+        self.names = names
+        self.all = []
+        self.klass = None
+        self.x = []
+        self.y = []
+        for c, s in enumerate(names):
+            col = Num(c, s) if s[0].isupper() else Sym(c, s)
+            self.all.append(col)
+            if s[-1] != ':':
+                if s.find('+') != -1 or s.find('-') != -1:
+                    self.x.append(col)
+                else:
+                    self.y.append(col)
+                if s[-1] == '!':
+                    self.klass = col
 
-    #x data: independent unskipped columns
-    x = utilobj.get_indep_data()
-    x_dict = utilobj.convert_data_list_to_dict(x)
-
-    #y data: dependent unskipped columns
-    y = utilobj.get_dep_data()
-    y_dict = utilobj.convert_data_list_to_dict(y)
-
-    #all data
-    all = utilobj.get_all_data()
-    all_dict = utilobj.convert_data_list_to_dict(all)
-
-    #all column names including skipped names 
-    all_column_names = all[0]
-
-    #all unskipped column names 
-    all_unskipped_column_names = x[0]+y[0]
-
-    #get functions start from here
-    def get_x_data(self):
-        return self.x
-    
-    def get_x_data_dict(self):
-        return self.x_dict
-
-    def get_y_data(self):
-        return self.y
-
-    def get_y_data_dict(self):
-        return self.y_dict
-    
-    def get_all_data(self):
-        return self.all
-    
-    def get_all_data_dict(self):
-        return self.all_dict
-    
-    def get_all_col_names(self):
-        return self.all_column_names
-    
-    def get_all_unskipped_col_names(self):
-        return self.all_unskipped_column_names
 
