@@ -57,4 +57,4 @@ instance.the()
 #print(instance.sym())
 data = Data("../hw2test.csv")
 for y in data.cols.x:
-    print(y.name)
+    print("Name: {0} column: {1}".format(y.name, y._has))

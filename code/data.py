@@ -1,4 +1,5 @@
 from . import utilities as u
+from itertools import chain
 from .cols import Cols
 from .row import Row
 
@@ -21,5 +22,15 @@ class Data:
     def add(self, xs):
         if self.cols is None:
             self.cols = Cols(xs)
-        else: 
-            self.rows.append(xs)
+        else:
+            if not isinstance(xs, Row):
+                row = Row(xs)
+            else:
+                row = xs
+            self.rows.append(row)
+            for todo in [self.cols.x, self.cols.y]:
+                for col in todo:
+                    col.add(row.cells[col.at])
+
+    def stats(self, places):
+        return "hi"

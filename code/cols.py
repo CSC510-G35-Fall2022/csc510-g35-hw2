@@ -14,8 +14,8 @@ class Cols:
     names = names of the columns
     all = every column including skipped columns are included here
     klass = single dependent col?
-    x = every dependent unskipped column
-    y = every independent unskipped column
+    x = every independent unskipped column
+    y = every dependent unskipped column
     '''
     def __init__(self, names):
         self.names = names
@@ -28,9 +28,9 @@ class Cols:
             self.all.append(col)
             if s[-1] != ':':
                 if s.find('+') != -1 or s.find('-') != -1:
-                    self.x.append(col)
-                else:
                     self.y.append(col)
+                else:
+                    self.x.append(col)
                 if s[-1] == '!':
                     self.klass = col
 

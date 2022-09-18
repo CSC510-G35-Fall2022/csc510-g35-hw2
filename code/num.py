@@ -42,12 +42,12 @@ class Num:
     replaces a random old value if size 
     exceeds attribute defined by the["nums"] config
     '''
-    def add(self, v, pos):
+    def add(self, v):
         #print(v)
         if v!="?":
             self.n = self.n + 1
-            self.lo = min(v, self.lo)
-            self.hi = max(v, self.hi)
+            self.lo = min(float(v), self.lo)
+            self.hi = max(float(v), self.hi)
             if len(self._has) < c.the["nums"]:
                 pos = len(self._has)
                 self._has.insert(pos, v)

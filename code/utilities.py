@@ -100,6 +100,10 @@ def per(t, p):
 def copy():
     return "test"
 
+#check if int and convert to string
+def coerce(s):
+    return int(s) if s.isdigit() else s
+
 def csvs(fname, fun):
     sep = ','
     src = open(fname)
@@ -107,11 +111,8 @@ def csvs(fname, fun):
         t = []
         #TODO add coerce function here later
         for s1 in line.rstrip().split(sep):
-            t.append(s1)
+            t.append(coerce(s1))
         fun(t)
-
-
-
 
 # utilities class which holds functions go get data as a 2D list and 
 # another function to convert the 2D list data into a dictionary format.

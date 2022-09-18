@@ -1,5 +1,6 @@
 import sys
 import re 
+from . import utilities as u
 
 #default values
 help = "USAGE: py commandLine.py [OPTIONS]\n\n\
@@ -17,16 +18,12 @@ help = "USAGE: py commandLine.py [OPTIONS]\n\n\
 -- 4. c is a column index (usually)"
 arg = sys.argv[1:]
 
-#check if int and convert to string
-def coerce(s):
-    return int(s) if s.isdigit() else s
-
 the = {}
 #compile pattern with help and turn into dictionary
 pattern = re.compile("\n[-][\S]+[\s]+[-][-]([\S]+)[^\n]+=[\s]([\S]+)")
 for match in pattern.finditer(help):
     k, v = match.group(1, 2)
-    the[k] = coerce(v)
+    the[k] = u.coerce(v)
 
 """
 Reads in default options and stores in configuration dictionary "the"
@@ -38,7 +35,7 @@ def cli(t):
         for n, x in enumerate(arg):
             if x == "-" + slot[0] or x == "--" + slot:
                 v = v == "false" and "true" or v == "true" and "false" or arg[n + 1]
-        t[slot] = coerce(v)
+        t[slot] = u.coerce(v)
     if len(sys.argv) == 2 and arg[0] == "help":
         print("\n" + help + "\n")
         exit()
