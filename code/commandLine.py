@@ -42,4 +42,4 @@ def cli(t):
     return t     
 
 the = cli(the)
-#print("hello world")
+print(the)

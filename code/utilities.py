@@ -6,7 +6,7 @@ import re
 
 # Read csv file with a comma as the delimiter, then split the data according
 # to num, sy and dependent data
-csvfile = open('../hw2test.csv', 'r')
+csvfile = open('/Users/mayapatel/Documents/Academics/Fall 2022/CSC510/csc510-g35-hw2/hw2test.csv', 'r')
 datalist = []
 for row in csv.reader(csvfile, delimiter=","):
     datalist.append(row)
@@ -159,4 +159,4 @@ class utilities:
 
         return tmp_dict
 utiltest=utilities()
-utiltest.csv("../hw2test.csv",'a')
+utiltest.csv("/Users/mayapatel/Documents/Academics/Fall 2022/CSC510/csc510-g35-hw2/hw2test.csv",'a')
