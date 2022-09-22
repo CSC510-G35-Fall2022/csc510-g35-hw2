@@ -8,7 +8,7 @@ from code.num import Num
 from code.sym import Sym
 import code.utilities as u
 from code.data import Data
-import math
+
 import random
 
 class Test:
@@ -28,30 +28,31 @@ class Test:
         print('bignumtest')
         c.the["nums"] = 32
         for i in range(1, 1001):
-            num.add(i, i - 1)
+            num.add(i)
         print(num.nums())
         return 32 == len(num._has)
 
     def num(self):
         num = Num(0, "hello")
         for i in range(1,101):
-            num.add(i, i - 1)
+            num.add(i)
         print(num.nums())
         mid, div = num.median(), num.div()
         print(mid, div)
         return 50 <= mid and mid <= 52 and 30.5 < div and div < 32
 
     def sym(self):
-        sym= Sym(0,"Hello")
+        sym= Sym(0, "Hello")
         c.the["nums"] = 32
         for x in ["a","a","a","a","b","b","c"]:
-            sym.add(y)
+            sym.add(x)
         mode, entropy = sym.mid(), sym.div()
         entropy = (1000*entropy)//1/1000
         return mode == "a" and 1.37 <= entropy and entropy <=1.38
     
     
-    eg, fails = {'the': the, "num": num, "bignum": bignum, "eg": 0, "nothing": 0}, 0
+    
+    eg, fails = {'the': the, "num": num, "bignum": bignum, "sym": sym}, 0
 
     def runs(self, k):
         if  k not in self.eg.keys():
@@ -77,12 +78,16 @@ class Test:
 
         msg =  ("PASS" if out else "FAIL") if status else "CRASH"
         print("!!!!!!\t" + msg +"\t" + k + "\t" + str(status))
+
+    def all(self):
+        for k, v in self.eg.items():
+            self.runs(k)
         
 
 
 instance = Test()
 instance.the()
-instance.runs("bignum")
+instance.all()
 #print("Num test")
 #print(instance.num())
 #print(instance.bignum())

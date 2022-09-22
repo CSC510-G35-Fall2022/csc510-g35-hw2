@@ -1,4 +1,5 @@
 from . import utilities
+import math
 class Sym:
     
     def __init__(self, c, s):
@@ -28,7 +29,10 @@ class Sym:
 
     #WORKING
     #finds mode of a column of data in the sym class
-    def mid(data_dict:dict):
+    def mid(self):
+        utilobj=utilities.utilities()
+        data_dict = utilobj.convert_data_list_to_dict(utilobj.get_sym_data())
+    
         mode_dict= {}
         for i, key in enumerate(data_dict.keys()):
             data_list = data_dict[key]
