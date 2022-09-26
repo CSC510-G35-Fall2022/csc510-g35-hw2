@@ -35,8 +35,12 @@ To run the program, you will need python 3.0 or higher.
    ```sh
    git clone https://github.com/maya-dc-patel/csc510-g35-hw1.git
    ```
-2. Open the python file and run using a terminal.
-#need to finish
+2. Open the path where repository is present and run 
+   ```sh
+   python setup.py install
+   ```
+   using a terminal.
+3. Run test.py
 
 <hr />
 
