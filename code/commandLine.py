@@ -1,6 +1,6 @@
 import sys
 import re 
-from . import utilities as u
+from codes.utilities import utilities as u
 
 #default values
 help = "USAGE: py commandLine.py [OPTIONS]\n\n\

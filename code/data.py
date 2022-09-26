@@ -1,8 +1,10 @@
-from . import utilities as u
+from codes.utilities import utilities as u
+import sys
 from itertools import chain
-from .cols import Cols
-from .row import Row
-
+from codes.cols import Cols
+from codes.row import Row
+import codes.utilities as u1
+the = {"nums": 512, "seperator": ','}
 class Data:
     '''
     Parameters:
@@ -14,23 +16,39 @@ class Data:
     def __init__(self, src):
         self.cols = None
         self.rows = []
-        u.csvs(src, self.add)
+        self.src=src
+        sep=the['seperator']
 
+        if isinstance(src, str):
+            u1.csvs(src, self.add,sep)
+        else:
+            for row in enumerate(src or []):
+                self.add(row)
     '''
     xs = row to insert
     '''
     def add(self, xs):
-        if self.cols is None:
+        if not self.cols:
             self.cols = Cols(xs)
         else:
-            if not isinstance(xs, Row):
-                row = Row(xs)
-            else:
-                row = xs
-            self.rows.append(row)
+            row=u1.push(self.rows, Row(xs))
             for todo in [self.cols.x, self.cols.y]:
                 for col in todo:
                     col.add(row.cells[col.at])
-
-    def stats(self, places):
-        return "hi"
+    def stats(self, places, show_cols, fun):
+        self.places= places or 2
+        self.show_cols=show_cols or show_cols.x
+        self.fun= fun or "mid"
+        table={}
+        for col in show_cols:
+            if fun=="mid":
+                val=col.mid()
+            else:
+                val=col.div()
+            value= round(value, places)
+            table[col.name]=value
+        return table
+filename='hw2test.csv'
+data = Data(filename)
+l=list(data.cols.y)
+print(len(l))

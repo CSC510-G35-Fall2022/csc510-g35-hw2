@@ -51,7 +51,9 @@ for i in datalist[0]:
         depdict[i] = ct
 
     ct += 1
-
+def push(t, x):
+    t.append(x)
+    return x
 
 num_data_list = []
 sym_data_list = []
@@ -159,4 +161,4 @@ class utilities:
 
         return tmp_dict
 utiltest=utilities()
-utiltest.csv("/Users/mayapatel/Documents/Academics/Fall 2022/CSC510/csc510-g35-hw2/hw2test.csv",'a')
+utiltest.csv("hw2test.csv",'a')

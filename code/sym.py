@@ -1,4 +1,4 @@
-from . import utilities
+from codes.utilities import utilities
 import math
 class Sym:
     

@@ -1,13 +1,12 @@
 import sys
+from codes import cols
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-import code
-import code.commandLine as c
-from code.num import Num
-from code.sym import Sym
-import code.utilities as u
-from code.data import Data
+from codes.num import Num
+from codes.sym import Sym
+import codes.utilities as u
+from codes.data import Data
+import codes.commandLine as c
 
 import random
 
@@ -21,7 +20,11 @@ class Test:
     def __init__(self):
         self.message = 'yo'
 
-   
+    def datatest(self):
+        filename='hw2test.csv'
+        data = Data(filename)
+        l=list(data.cols.y)
+        return True if len(l)==3 else False
 
     def bignum(self):
         num = Num(0, "Hello")
@@ -52,7 +55,7 @@ class Test:
     
     
     
-    eg, fails = {'the': the, "num": num, "bignum": bignum, "sym": sym}, 0
+    eg, fails = {'the': the, "num": num, "bignum": bignum, "sym": sym, "data":datatest}, 0
 
     def runs(self, k):
         if  k not in self.eg.keys():
@@ -93,6 +96,6 @@ instance.all()
 #print(instance.bignum())
 #print("Sym test")
 #print(instance.sym())
-data = Data("../hw2test.csv")
+#data = Data("hw2test.csv")
 # for y in data.cols.x:
 #     print("Name: {0} column: {1}".format(y.name, y._has))

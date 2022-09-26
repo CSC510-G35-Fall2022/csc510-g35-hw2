@@ -1,7 +1,7 @@
 from logging import NullHandler
-from . import utilities as u
-from .num import Num
-from .sym import Sym
+from codes.num import Num
+from codes.sym import Sym
+import codes.utilities as u
 import re
 
 #store csv data, get functions for each
