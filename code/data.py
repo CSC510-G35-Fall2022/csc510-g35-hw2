@@ -1,9 +1,9 @@
-from codes.utilities import utilities as u
+from code.utilities import utilities as u
 import sys
 from itertools import chain
-from codes.cols import Cols
-from codes.row import Row
-import codes.utilities as u1
+from code.cols import Cols
+from code.row import Row
+import code.utilities as u1
 the = {"nums": 512, "seperator": ','}
 class Data:
     '''

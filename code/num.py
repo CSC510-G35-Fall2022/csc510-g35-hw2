@@ -1,8 +1,7 @@
 import random as r
 import math
-from codes.utilities import utilities as u
-import codes.commandLine as c
-
+from code.utilities import utilities as u
+import code.commandLine as c
 class Num:
     '''
     Parameters:
