@@ -1,8 +1,12 @@
 import sys
-sys.path.insert(0, '/Users/sanjanacheerla/csc510-g35-hw2/')
+import os
+
+sys.path.insert(0, os.getcwd())
+
+
 print(sys.path)
 from codes import cols
-import os
+
 
 from codes.num import Num
 from codes.sym import Sym
