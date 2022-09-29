@@ -26,21 +26,16 @@ class Sym:
             if v>0:
                 e=e-self.fun(v/self.n)
         return e
-
-
-    #WORKING
+        
     #finds mode of a column of data in the sym class
     def mid(self):
-        # utilobj=utilities.utilities()
-        data_dict = utilities.convert_data_list_to_dict(utilities.get_sym_data(self))
-    
-        mode_dict= {}
-        for i, key in enumerate(data_dict.keys()):
-            data_list = data_dict[key]
-            mode = max(set(data_list), key = data_list.count)
-            mode_dict[key] = mode
-
-        return mode_dict
+        most = -1
+        mode = None
+        for k,v in self._has.items():
+            if v > most:
+                most = v
+                mode = k
+        return mode
 
 
 # utilobj=utilities.utilities()

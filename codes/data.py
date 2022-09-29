@@ -48,7 +48,3 @@ class Data:
             value= round(value, places)
             table[col.name]=value
         return table
-filename='hw2test.csv'
-data = Data(filename)
-l=list(data.cols.y)
-print(len(l))

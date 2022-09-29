@@ -23,7 +23,7 @@ class Test:
         self.message = 'yo'
 
     def datatest(self):
-        filename='hw2test.csv'
+        filename='../hw2test.csv'
         data = Data(filename)
         l=list(data.cols.y)
         return True if len(l)==3 else False
@@ -55,7 +55,10 @@ class Test:
         entropy = (1000*entropy)//1/1000
         return mode == "a" and 1.37 <= entropy and entropy <=1.38
     
-    
+    def csv(self):
+        n = 0
+        u.csvs('../hw2test.csv')
+
     
     eg, fails = {'the': the, "num": num, "bignum": bignum, "sym": sym, "data":datatest}, 0
 
@@ -92,6 +95,7 @@ class Test:
 
 instance = Test()
 instance.the()
+#print(instance.sym())
 instance.all()
 #print("Num test")
 #print(instance.num())
