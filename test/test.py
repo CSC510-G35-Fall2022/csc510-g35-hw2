@@ -1,13 +1,9 @@
 import sys
 import os
-
 sys.path.insert(0, os.getcwd())
-
 
 print(sys.path)
 from codes import cols
-
-
 from codes.num import Num
 from codes.sym import Sym
 import codes.utilities as u
