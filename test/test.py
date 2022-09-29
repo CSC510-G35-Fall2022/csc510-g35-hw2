@@ -1,4 +1,6 @@
 import sys
+sys.path.insert(0, '/Users/sanjanacheerla/csc510-g35-hw2/')
+print(sys.path)
 from codes import cols
 import os
 

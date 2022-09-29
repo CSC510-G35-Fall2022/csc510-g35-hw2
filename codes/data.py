@@ -1,9 +1,9 @@
-from code.utilities import utilities as u
+from codes.utilities import utilities as u
 import sys
 from itertools import chain
-from code.cols import Cols
-from code.row import Row
-import code.utilities as u1
+from codes.cols import Cols
+from codes.row import Row
+import codes.utilities as u1
 the = {"nums": 512, "seperator": ','}
 class Data:
     '''
@@ -20,7 +20,7 @@ class Data:
         sep=the['seperator']
 
         if isinstance(src, str):
-            u1.csvs(src, self.add,sep)
+            u1.csvs(src, self.add)
         else:
             for row in enumerate(src or []):
                 self.add(row)

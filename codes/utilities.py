@@ -6,7 +6,7 @@ import re
 
 # Read csv file with a comma as the delimiter, then split the data according
 # to num, sy and dependent data
-csvfile = open('/Users/mayapatel/Documents/Academics/Fall 2022/CSC510/csc510-g35-hw2/hw2test.csv', 'r')
+csvfile = open('hw2test.csv', 'r')
 datalist = []
 for row in csv.reader(csvfile, delimiter=","):
     datalist.append(row)
@@ -128,6 +128,15 @@ class utilities:
             line=s.strip()
             t=line.split(",")
             s=src.readline()
+    
+    def coerce(s):
+        return int(s) if s.isdigit() else s
+
+    def per(t, p):
+        n = len(t)
+        #obtains position based off percentile
+        p = math.floor((p or 0.5) * n + 0.5);
+        return t[max(1, min(n, p)) - 1]
 
     # get num data as a 2D array
     def get_num_data(self):
@@ -150,7 +159,7 @@ class utilities:
         return all_data_list
 
     # convert 2D array data into a dictionary
-    def convert_data_list_to_dict(self, data_):
+    def convert_data_list_to_dict(data_):
         tmp_dict = {}
         for x in range(0, len(data_[0])):
             tmp_dict[data_[0][x]] = []

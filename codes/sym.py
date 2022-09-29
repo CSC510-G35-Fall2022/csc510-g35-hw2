@@ -1,4 +1,5 @@
-from code.utilities import utilities
+from ctypes import util
+from codes.utilities import utilities
 import math
 class Sym:
     
@@ -30,8 +31,8 @@ class Sym:
     #WORKING
     #finds mode of a column of data in the sym class
     def mid(self):
-        utilobj=utilities.utilities()
-        data_dict = utilobj.convert_data_list_to_dict(utilobj.get_sym_data())
+        # utilobj=utilities.utilities()
+        data_dict = utilities.convert_data_list_to_dict(utilities.get_sym_data(self))
     
         mode_dict= {}
         for i, key in enumerate(data_dict.keys()):
@@ -42,7 +43,7 @@ class Sym:
         return mode_dict
 
 
-utilobj=utilities.utilities()
-data_dict = utilobj.convert_data_list_to_dict(utilobj.get_sym_data())
-print("xmid: ", Sym.mid(data_dict))
+# utilobj=utilities.utilities()
+# data_dict = utilobj.convert_data_list_to_dict(utilobj.get_sym_data())
+# print("xmid: ", Sym.mid(data_dict))
 
