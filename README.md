@@ -8,7 +8,7 @@
 ![forks][forks]
 ![stars][stars]
 ![watchers][watchers]
-![coverage][coverage-url]
+[![coverage][coverage]][coverage-url]
 
 
 <hr />
