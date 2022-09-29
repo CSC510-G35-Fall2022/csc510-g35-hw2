@@ -1,10 +1,9 @@
 
 # HW2-4
-
+[![DOI](https://zenodo.org/badge/531546264.svg)](https://zenodo.org/badge/latestdoi/531546264)
 [![Contributors][contributors]][contributors-url]
 [![last commit][last-commit]][last-commit-url]
 [![license][license]][license-url]
-![files][files]
 ![forks][forks]
 ![stars][stars]
 ![watchers][watchers]
@@ -76,7 +75,7 @@ This project is distributed under the Apache License. See `LICENSE.txt` for more
 
 ## Zenodo DOI
 Click on the badge below to view the Zenodo DOI page for this project. 
-#need to finish
+[![DOI](https://zenodo.org/badge/531546264.svg)](https://zenodo.org/badge/latestdoi/531546264)
 
 <hr />
 
