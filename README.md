@@ -13,14 +13,14 @@
 <hr />
 
 ## About The Project
-#need to update
+The purpose of this project is to convert lua code to python. This project is for CSC 510 at North Carolina State University. More about this project and its description can be found here: https://github.com/txt/se22/blob/main/docs/hw2345.md
 
 ### Built With
 
 The project is built using Python.
-
 [![python][python]][python-url]
 
+Code coverage report is in HTML. 
 <hr />
 
 ## Getting Started
@@ -34,7 +34,7 @@ To run the program, you will need python 3.0 or higher.
 ### Installation
 1. Clone the repo
    ```sh
-   git clone https://github.com/maya-dc-patel/csc510-g35-hw1.git
+   git clone https://github.com/CSC510-G35-Fall2022/csc510-g35-hw2.git
    ```
 2. Open the path where repository is present and run 
    ```sh
@@ -46,12 +46,6 @@ To run the program, you will need python 3.0 or higher.
    ```
    python test.py
    ```
-
-<hr />
-
-## Usage
-
-need to update
 
 <hr />
 
