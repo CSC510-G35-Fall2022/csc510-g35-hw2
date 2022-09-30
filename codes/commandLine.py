@@ -2,6 +2,7 @@ import sys
 import re 
 from codes.utilities import utilities as u
 
+'''Defines command line arguments and config dictionary'''
 
 #default values
 help = "USAGE: py commandLine.py [OPTIONS]\n\n\

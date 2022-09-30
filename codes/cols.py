@@ -4,20 +4,21 @@ from codes.sym import Sym
 import codes.utilities as u
 import re
 
-#store csv data, get functions for each
 class Cols:
-    #single dependent klass column - dont know what this is
-    '''
-    Parameters:
-    names = first row containing names of the columns
-    Attributes:
-    names = names of the columns
-    all = every column including skipped columns are included here
-    klass = single dependent col?
-    x = every independent unskipped column
-    y = every dependent unskipped column
-    '''
+    '''Declares a column class that holds a column of data'''
+
     def __init__(self, names):
+        ''' 
+        inits Cols with name of col
+
+        :param names: (str) first row containing names of the columns
+        :type names: (str) names of the columns
+        :type all: (list[col]) every column including skipped columns are included here
+        :type klass: (col) single dependent col
+        :type x: (list[col]) every independent unskipped column
+        :type y: (list[col]) every dependent unskipped column
+        
+        '''
         self.names = names
         self.all = []
         self.klass = None
