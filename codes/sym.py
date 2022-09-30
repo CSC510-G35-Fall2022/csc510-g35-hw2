@@ -2,7 +2,7 @@ from ctypes import util
 from codes.utilities import utilities
 import math
 class Sym:
-    
+    '''Holds number cols and applies functions to them'''
     def __init__(self, c, s):
         self.n = 0
         self.name = s
@@ -10,6 +10,12 @@ class Sym:
         self.at = c or 0
 
     def add(self,v):
+        ''' 
+        Adds a new value to the list and increments number if already in the list
+        
+        :param v: value to add to the list
+
+        '''
         if v!="?":
             self.n=self.n+1
         if v in self._has:
@@ -18,9 +24,14 @@ class Sym:
             self._has[v]= 1
 
     def fun(self,p):
+        '''helper function'''
         return p*math.log(p,2)
 
     def div(self):
+        '''
+        Returns the diversity of the sym col
+        :return: diversity of sym col
+        '''
         e=0
         for k,v in self._has.items():
             if v>0:
@@ -29,6 +40,12 @@ class Sym:
 
     #finds mode of a column of data in the sym class
     def mid(self):
+        '''
+        Returns the mode of the data in sym class
+
+        :return: mode of sym list
+
+        '''
         most = -1
         mode = None
         for k,v in self._has.items():

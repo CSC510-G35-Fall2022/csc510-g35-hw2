@@ -3,19 +3,7 @@ import math
 from codes.utilities import utilities as u
 import codes.commandLine as c
 class Num:
-    '''
-    Parameters:
-    c = column position
-    s = column name
-    Attributes:
-    n = size
-    name = name
-    has = list of numbers associated with Num object
-    at = column position
-    lo = lowest number
-    hi = highest number
-    isSorted = Boolean represented if sorted
-    '''
+    '''Holds number cols and applies functions to them'''
     def __init__(self, c, s):
         self.n = 0
         self.name = s
@@ -29,23 +17,22 @@ class Num:
         else:
             self.w = 1
 
-    """
-    Sorts the has list and sets isSorted to True
-    """
     def nums(self):
+        '''
+        Sorts the has list and sets isSorted to True
+        '''
         if not self.isSorted:
             self._has.sort()
             self.isSorted=True
         return self._has
 
-    '''
-    v = value
-    pos = position
-    Adds a new value to the list
-    replaces a random old value if size 
-    exceeds attribute defined by the["nums"] config
-    '''
     def add(self, v):
+        ''' 
+        Adds a new value to the list and replaces a random old value if size exceeds attribute defined by the["nums"] config
+        
+        :param v: value to add to the list
+
+        '''
         #print(v)
         v = float(v)
         if v!="?":
@@ -59,13 +46,12 @@ class Num:
                 pos = r.randrange(len(self._has))
                 self._has[pos] = v
             self.isSorted = False
-        
-    '''
-    Returns the diversity of the nums object
-    NOT to be confused with the usual "standard deviation"
-    involves taking the 90th and 10th percentile values and dividing by 2.58
-    '''
+    
     def div(self):
+        '''
+        Returns the diversity of the nums object
+        :return: diversity of sym object
+        '''
         a=self.nums()
         return (u.per(a, 0.9) - u.per(a, 0.1)) / 2.58
 
@@ -73,6 +59,12 @@ class Num:
     Returns the median of the nums object
     '''
     def mid(self):
+        '''
+        Returns the median of the nums col
+
+        :return: median of nums list
+
+        '''
         return u.per(self.nums(), 0.5)
 
     def __string__(self):

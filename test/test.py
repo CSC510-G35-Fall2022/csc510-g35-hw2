@@ -52,11 +52,11 @@ class Test:
 
     def csv(self):
         n = True
-        u.csvs('hw2test.csv', self.csvOutput, n)
+        u.csvs('../hw2test.csv', self.csvOutput, n)
         return True
 
     def data(self):
-        d = Data('hw2test.csv')
+        d = Data('../hw2test.csv')
         for col in d.cols.y:
             print(col.__string__())
         return True
@@ -68,7 +68,7 @@ class Test:
         return col.div()
 
     def stats(self):
-        data = Data('hw2test.csv')
+        data = Data('../hw2test.csv')
 
         print(data.stats(2, data.cols.x, self.statsMid))
         print(data.stats(3, data.cols.x, self.statsDiv))
