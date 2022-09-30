@@ -41,7 +41,11 @@ To run the program, you will need python 3.0 or higher.
    python setup.py install
    ```
    using a terminal.
-3. Run test.py
+3. Change the directory to "test"
+4. Run test.py
+   ```
+   python test.py
+   ```
 
 <hr />
 
