@@ -13,7 +13,7 @@
 <hr />
 
 ## About The Project
-The purpose of this project is to convert lua code to python. This project is for CSC 510 at North Carolina State University. More about this project and its description can be found here: https://github.com/txt/se22/blob/main/docs/hw2345.md
+The purpose of this project is to convert lua code to python. This project is for CSC 510 at North Carolina State University. More about this project and its description can be found here: https://github.com/txt/se22/blob/main/docs/hw2345.md. Click on code coverage badge above for code coverage html report.
 
 ### Built With
 
