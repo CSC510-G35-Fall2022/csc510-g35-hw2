@@ -106,15 +106,17 @@ def copy():
 def coerce(s):
     return int(s) if s.isdigit() else s
 
-def csvs(fname, fun):
+def csvs(fname, fun, n):
     sep = ','
     src = open(fname)
+    count = 0
     for line in src:
         t = []
-        #TODO add coerce function here later
         for s1 in line.rstrip().split(sep):
             t.append(coerce(s1))
-        fun(t)
+        count = count + 1
+        if n is False or (n is True and count <= 10):
+            fun(t)
 
 # utilities class which holds functions go get data as a 2D list and 
 # another function to convert the 2D list data into a dictionary format.
