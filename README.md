@@ -47,8 +47,7 @@ To run the program, you will need python 3.0 or higher.
    python test.py
    ```
 ### Documentation
-To view documentation go to [link](https://csc510-g35-fall2022.github.io/csc510-g35-hw2/)
-Note that CSS may not be working
+To view documentation go to [link](https://csc510-g35-fall2022.github.io/csc510-g35-hw2/index.html)
 
 <hr />
 
