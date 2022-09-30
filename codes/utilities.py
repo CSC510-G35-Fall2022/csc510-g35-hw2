@@ -6,7 +6,7 @@ import re
 
 # Read csv file with a comma as the delimiter, then split the data according
 # to num, sy and dependent data
-csvfile = open('../hw2test.csv', 'r')
+csvfile = open('hw2test.csv', 'r')
 datalist = []
 for row in csv.reader(csvfile, delimiter=","):
     datalist.append(row)
