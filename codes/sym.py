@@ -26,7 +26,7 @@ class Sym:
             if v>0:
                 e=e-self.fun(v/self.n)
         return e
-        
+
     #finds mode of a column of data in the sym class
     def mid(self):
         most = -1
@@ -36,6 +36,9 @@ class Sym:
                 most = v
                 mode = k
         return mode
+
+    def __string__(self):
+        return ''
 
 
 # utilobj=utilities.utilities()

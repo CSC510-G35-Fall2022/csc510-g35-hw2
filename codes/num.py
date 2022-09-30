@@ -24,6 +24,10 @@ class Num:
         self.lo = math.inf
         self.hi = -math.inf
         self.isSorted=True
+        if s[-1] == '-':
+            self.w = -1
+        else:
+            self.w = 1
 
     """
     Sorts the has list and sets isSorted to True
@@ -43,6 +47,7 @@ class Num:
     '''
     def add(self, v):
         #print(v)
+        v = float(v)
         if v!="?":
             self.n = self.n + 1
             self.lo = min(float(v), self.lo)
@@ -67,6 +72,8 @@ class Num:
     '''
     Returns the median of the nums object
     '''
-    def median(self):
+    def mid(self):
         return u.per(self.nums(), 0.5)
 
+    def __string__(self):
+        return 'at: {0} hi: {1} isSorted: {2} lo: {3} n: {4} name: {5} w: {6}'.format(self.at, self.hi, self.isSorted, self.lo, self.n, self.name, self.w)

@@ -4,7 +4,8 @@ from itertools import chain
 from codes.cols import Cols
 from codes.row import Row
 import codes.utilities as u1
-the = {"nums": 512, "seperator": ','}
+import math
+
 class Data:
     '''
     Parameters:
@@ -17,13 +18,13 @@ class Data:
         self.cols = None
         self.rows = []
         self.src=src
-        sep=the['seperator']
 
         if isinstance(src, str):
-            u1.csvs(src, self.add)
+            u1.csvs(src, self.add, False)
         else:
             for row in enumerate(src or []):
                 self.add(row)
+
     '''
     xs = row to insert
     '''
@@ -35,16 +36,13 @@ class Data:
             for todo in [self.cols.x, self.cols.y]:
                 for col in todo:
                     col.add(row.cells[col.at])
+
     def stats(self, places, show_cols, fun):
-        self.places= places or 2
-        self.show_cols=show_cols or show_cols.x
-        self.fun= fun or "mid"
         table={}
         for col in show_cols:
-            if fun=="mid":
-                val=col.mid()
-            else:
-                val=col.div()
-            value= round(value, places)
-            table[col.name]=value
+            v = fun(col)
+            if type(v) == int or type(v) == float:
+                mult = 10**places
+                v = math.floor(v * mult + 0.5) / mult
+            table[col.name] = v
         return table
